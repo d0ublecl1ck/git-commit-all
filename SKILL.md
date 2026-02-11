@@ -36,11 +36,15 @@ description: Strict workflow and safety constraints for "commit all files withou
 5) **Handle pre-commit changes**
 - If pre-commit hooks modify files, re-commit to include those changes
 
+6) **Auto push after successful commit**
+- Automatically push to the tracked remote branch after a successful commit
+- If no upstream is configured, push with `-u origin <current-branch>`
+- If push fails, treat it as an exceptional condition and ask the user for instructions
+
 ## Safety constraints (hard rules)
 
 - Never update any git config
 - Never run interactive git commands (e.g., `rebase -i`)
-- Never push unless the user explicitly asks
 
 ## Branching and PRs (only if user explicitly requests a PR)
 
